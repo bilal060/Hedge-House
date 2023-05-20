@@ -1,0 +1,38 @@
+.sliderImg {
+    height: 100vh;
+  }
+  .position {
+    position: absolute;
+    left: 4.5%;
+    top: 5%;
+    z-index: 999;
+  }
+  .btn {
+    padding: 1rem 1rem !important;
+  }
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+    background-color: black !important;
+    padding: 70px 22px !important;
+    border-radius: 57px !important;
+  }
+  @media screen and (max-width: 640px) {
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 100% 100%;
+      background-color: black !important;
+      padding: 30px 10px !important;
+      border-radius: 57px !important;
+    }
+  }
