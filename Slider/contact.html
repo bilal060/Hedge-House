@@ -14,7 +14,23 @@
     <title>Contact</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/carousel.css" />
-
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function sendMail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "razaawan.business@gmail.com",
+                Password: "malik786",
+                To: 'razaawan.text@gmail.com',
+                From: "you@isp.com",
+                Subject: "This is the subject",
+                Body: "And this is the body"
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
 </head>
 
 <body>
@@ -113,89 +129,92 @@
         </nav> -->
         <div class="bg-img p-sm-5 p-4">
             <div class="d-flex justify-content-center flex-column m-auto">
-                <div class="row mx-0 justify-content-center w-100">
-                    <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
+                <form>
+                    <div class="row mx-0 justify-content-center w-100">
+                        <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
 
-                        <div class="row mb-2">
-                            <div class="col-sm-6 w-full">
-                                <label for="exampleInputEmail1" class="form-label">First Name <span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="w-100 form-control" />
-                            </div>
-                            <div class="col-sm-6 w-full">
-                                <label class="form-label">Last Name <span class="text-danger">*</span></label>
-                                <input type="text" class="w-100 form-control" />
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="email  mb-1 fs-5">
-                                <label class="form-label">Email:<span class="text-danger">*</span></label>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <input type="email" class="w-100 form-control" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="title mb-1 fs-5">Phone:<span class="text-danger">*</span></div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-3 pe-0 w-full"> <input type="text" class="w-100 form-control" /> <label
-                                    class="fs-7">Area
-                                    Code</label> </div>
-                            <div class="dash col-1 p-0 d-flex justify-content-center">_</div>
-                            <div class="col-8 ps-0 w-full"> <input type="text" class="w-100 form-control" /> <label
-                                    class="fs-7">Phone
-                                    Number</label> </div>
-                        </div>
-                        <div class="row">
-                            <div class="email  mb-1 fs-5">
-                                <label class="form-label">Company:</label>
-                            </div>
-                            <div class="col-12 mb-2">
-
-                                <input type="email" class="w-100 form-control" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="email  mb-1 fs-5">
-                                <label class="form-label">Subject:<span class="text-danger">*</span></label>
-                            </div>
-                            <div class="col-12 mb-2">
-
-                                <input type="email" class="w-100 form-control" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="email  mb-1 fs-5">
-                                <label class="form-label">Details:</label>
-                            </div>
-                            <div class="col-12 mb-2">
-
-                                <textarea class=" w-100 form-control" rows="4" cols="50"></textarea>
+                            <div class="row mb-2">
+                                <div class="col-sm-6 w-full">
+                                    <label for="exampleInputEmail1" class="form-label">First Name <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="w-100 form-control" />
+                                </div>
+                                <div class="col-sm-6 w-full">
+                                    <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="w-100 form-control" />
+                                </div>
                             </div>
 
-                            <div class="mb-2">
-                                <label class="form-label">
-                                    <input type="checkbox" />
-                                    <span>
-                                        Send a copy of this message to yourself:
-
-                                    </span>
-                                </label>
+                            <div class="row">
+                                <div class="email  mb-1 fs-5">
+                                    <label class="form-label">Email:<span class="text-danger">*</span></label>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <input type="email" class="w-100 form-control" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="buttons d-flex">
-                            <div class="submit"><button class="bg-dark text-light px-3 py-1">Submit</button></div>
-                            <div class="submit"><button class="bg-dark text-light ms-3 px-3 py-1">Reset</button></div>
-                        </div>
-                        <div class="warning mt-4">
-                            <div class="bg-light text-danger w-75">* Indicates requires fields</div>
+                            <div class="row">
+                                <div class="title mb-1 fs-5">Phone:<span class="text-danger">*</span></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-3 pe-0 w-full"> <input type="text" class="w-100 form-control" /> <label
+                                        class="fs-7">Area
+                                        Code</label> </div>
+                                <div class="dash col-1 p-0 d-flex justify-content-center">_</div>
+                                <div class="col-8 ps-0 w-full"> <input type="text" class="w-100 form-control" /> <label
+                                        class="fs-7">Phone
+                                        Number</label> </div>
+                            </div>
+                            <div class="row">
+                                <div class="email  mb-1 fs-5">
+                                    <label class="form-label">Company:</label>
+                                </div>
+                                <div class="col-12 mb-2">
+
+                                    <input type="email" class="w-100 form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="email  mb-1 fs-5">
+                                    <label class="form-label">Subject:<span class="text-danger">*</span></label>
+                                </div>
+                                <div class="col-12 mb-2">
+
+                                    <input type="email" class="w-100 form-control" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="email  mb-1 fs-5">
+                                    <label class="form-label">Details:</label>
+                                </div>
+                                <div class="col-12 mb-2">
+
+                                    <textarea class=" w-100 form-control" rows="4" cols="50"></textarea>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">
+                                        <input type="checkbox" />
+                                        <span>
+                                            Send a copy of this message to yourself:
+
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="buttons d-flex">
+                                <div class="submit"><button class="bg-dark text-light px-3 py-1">Submit</button></div>
+                                <div class="submit"><button class="bg-dark text-light ms-3 px-3 py-1">Reset</button>
+                                </div>
+                            </div>
+                            <div class="warning mt-4">
+                                <div class="bg-light text-danger w-75">* Indicates requires fields</div>
+                            </div>
+
                         </div>
 
                     </div>
-
-                </div>
+                </form>
 
             </div>
         </div>

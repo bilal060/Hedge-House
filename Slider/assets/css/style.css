@@ -711,6 +711,10 @@ li::marker {
   .mt-sm {
     margin-top: 400px !important;
   }
+
+  .bg-image-style {
+    padding: 0 !important;
+  }
 }
 
 /* img{
@@ -755,19 +759,31 @@ li::marker {
   background-color: #212529 !important;
 }
 
-.text-shadow {
+/* .text-shadow {
   text-shadow: 1px 1px 2px green, 0 0 1em white, 0 0 0.2em black;
 }
 
 .accordion-body,
 div {
   text-shadow: 1px 1px 2px green, 0 0 1em white, 0 0 0.2em black;
-}
+} */
 
 .navbar div {
   text-shadow: none !important;
 }
-.navbar-collapse.show{
+
+.navbar-collapse.show {
   margin: 12px 0;
   border-top: 1px solid #8bb24c;
+}
+
+.aboutTooltip1 {
+  padding: 15px !important;
+}
+
+.bg-image-style {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow-y: auto;
 }
