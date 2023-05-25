@@ -715,6 +715,21 @@ li::marker {
   .bg-image-style {
     padding: 0 !important;
   }
+
+  .vegetation {
+    width: 100% !important;
+    left: 0 !important;
+  }
+
+  .design2 {
+    /* right: 10% !important; */
+    bottom: 40%;
+    width: fit-content !important;
+    padding: 20px;
+    transform: unset !important;
+    left: 0 !important;
+    height: fit-content !important;
+  }
 }
 
 /* img{
@@ -755,7 +770,7 @@ li::marker {
 
 .object-fit,
 .sliderImg {
-  object-fit: contain;
+  object-fit: cover;
   background-color: #212529 !important;
 }
 
@@ -784,6 +799,6 @@ div {
 .bg-image-style {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   overflow-y: auto;
 }

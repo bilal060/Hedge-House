@@ -14,26 +14,13 @@
     <title>Contact</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/carousel.css" />
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
-    <script>
-        function sendMail() {
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "razaawan.business@gmail.com",
-                Password: "malik786",
-                To: 'razaawan.text@gmail.com',
-                From: "you@isp.com",
-                Subject: "This is the subject",
-                Body: "And this is the body"
-            }).then(
-                message => alert(message)
-            );
-        }
-    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
-<body>
+<body onload="generateCaptcha(event);">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="w-sm-60">
@@ -129,70 +116,54 @@
         </nav> -->
         <div class="bg-img p-sm-5 p-4">
             <div class="d-flex justify-content-center flex-column m-auto">
-                <form>
-                    <div class="row mx-0 justify-content-center w-100">
-                        <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
 
-                            <div class="row mb-2">
-                                <div class="col-sm-6 w-full">
-                                    <label for="exampleInputEmail1" class="form-label">First Name <span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" class="w-100 form-control" />
+                <div class="row mx-0 justify-content-center w-100">
+                    <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
+
+                        <form action="/action_page.php" method="post" onsubmit="return validateForm()" name="myForm">
+
+                            <div class="row mb-4">
+                                <div class="col-sm-6 mb-sm-0 mb-4 w-full">
+                                    <input type="text" class="w-100 form-control" placeholder="First Name" />
                                 </div>
                                 <div class="col-sm-6 w-full">
-                                    <label class="form-label">Last Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="w-100 form-control" />
+                                    <input type="text" class="w-100 form-control" placeholder="Last Name" />
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="email  mb-1 fs-5">
-                                    <label class="form-label">Email:<span class="text-danger">*</span></label>
-                                </div>
-                                <div class="col-12 mb-2">
-                                    <input type="email" class="w-100 form-control" />
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <input type="email" class="w-100 form-control" placeholder="Email" />
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="title mb-1 fs-5">Phone:<span class="text-danger">*</span></div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-3 pe-0 w-full"> <input type="text" class="w-100 form-control" /> <label
-                                        class="fs-7">Area
-                                        Code</label> </div>
+
+                            <div class="row mb-4">
+                                <div class="col-3 pe-0 w-full"> <input type="text" class="w-100 form-control"
+                                        placeholder="Area Code" />
+                                </div>
                                 <div class="dash col-1 p-0 d-flex justify-content-center">_</div>
-                                <div class="col-8 ps-0 w-full"> <input type="text" class="w-100 form-control" /> <label
-                                        class="fs-7">Phone
-                                        Number</label> </div>
-                            </div>
-                            <div class="row">
-                                <div class="email  mb-1 fs-5">
-                                    <label class="form-label">Company:</label>
-                                </div>
-                                <div class="col-12 mb-2">
-
-                                    <input type="email" class="w-100 form-control" />
+                                <div class="col-8 ps-0 w-full"> <input type="text" class="w-100 form-control"
+                                        placeholder="Phone Number" />
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="email  mb-1 fs-5">
-                                    <label class="form-label">Subject:<span class="text-danger">*</span></label>
-                                </div>
-                                <div class="col-12 mb-2">
-
-                                    <input type="email" class="w-100 form-control" />
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <input type="email" class="w-100 form-control" placeholder="Company" />
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="email  mb-1 fs-5">
-                                    <label class="form-label">Details:</label>
-                                </div>
-                                <div class="col-12 mb-2">
+                            <div class="row mb-4">
+                                <div class="col-12">
 
-                                    <textarea class=" w-100 form-control" rows="4" cols="50"></textarea>
+                                    <input type="email" class="w-100 form-control" placeholder="Subject" />
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-12 mb-3">
+                                    <textarea class=" w-100 form-control" rows="4" cols="50"
+                                        placeholder="Details"></textarea>
                                 </div>
 
-                                <div class="mb-2">
+                                <div>
                                     <label class="form-label">
                                         <input type="checkbox" />
                                         <span>
@@ -202,19 +173,36 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="buttons d-flex">
-                                <div class="submit"><button class="bg-dark text-light px-3 py-1">Submit</button></div>
-                                <div class="submit"><button class="bg-dark text-light ms-3 px-3 py-1">Reset</button>
+                            <div class="mb-3">
+                                <label for="pwd" class="fw-bold">Captcha:</label>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <input type="text" name="maincaptcha" readonly class="form-control"
+                                            id="mainCaptcha" />
+                                    </div>
+                                    <div class="col-2 d-flex justify-content-center align-items-center">
+                                        <button class="btn btn-success btn-sm" onclick="generateCaptcha(event);"
+                                            id="refresh"><i class="fa fa-refresh" style="font-size:17px"></i></button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="warning mt-4">
-                                <div class="bg-light text-danger w-75">* Indicates requires fields</div>
+                            <div class="mb-3">
+                                <label for="pwd" class="fw-bold">Enter Captcha:</label>
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <input type="text" name="checkcaptcha" class="form-control" id="txtInput" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span id="error" style="color:red;"></span>
+                                <span id="success" style="color:green;"></span>
                             </div>
 
-                        </div>
-
+                            <button type="submit" class="btn btn-dark px-4 py-2">Submit</button>
+                        </form>
                     </div>
-                </form>
+                </div>
 
             </div>
         </div>
@@ -226,6 +214,59 @@
         menu_btn.addEventListener("click", () => {
             sidebar.classList.toggle("active-nav");
             container.classList.toggle("active-cont");
+        });
+    </script>
+    <script type="text/javascript">
+        //for captcha
+        function generateCaptcha(event) {
+            event.preventDefault();
+            var alpha = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+            var i;
+            for (i = 0; i < 4; i++) {
+                var a = alpha[Math.floor(Math.random() * alpha.length)];
+                var b = alpha[Math.floor(Math.random() * alpha.length)];
+                var c = alpha[Math.floor(Math.random() * alpha.length)];
+                var d = alpha[Math.floor(Math.random() * alpha.length)];
+            }
+            var code = a + '' + b + '' + '' + c + '' + d;
+            document.getElementById("mainCaptcha").value = code
+            var el = document.getElementById('mainCaptcha');
+            el.style.fontFamily = 'Geneva, Verdana, sans-serif';
+            el.style.fontSize = 'large';
+        }
+
+        //validate the form
+        function validateForm() {
+            let x = document.forms["myForm"]["checkcaptcha"].value;
+            let y = document.forms["myForm"]["maincaptcha"].value;
+
+            if (x == "") {
+                document.getElementById('error').innerHTML = "Please enter the captcha.";
+
+                return false;
+            }
+            if (x !== y) {
+                document.getElementById('error').innerHTML = "Captcha does not match.";
+
+                return false;
+            }
+            if (x === y) {
+                document.getElementById('error').innerHTML = "";
+                alert("Captcha entered successfully");
+                return true;
+            }
+        }
+        // automatically generate captcha after page laod
+        $(window).on('load', function () {
+            generateCaptcha(event);
+        });
+        // Disable right click on web page
+        $("html").on("contextmenu", function (e) {
+            return false;
+        });
+        // Disable cut, copy and paste on web page
+        $('html').bind('cut copy paste', function (e) {
+            e.preventDefault();
         });
     </script>
 </body>
