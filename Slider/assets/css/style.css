@@ -91,11 +91,19 @@ body {
 .top-75 {
   top: 75% !important;
 }
+.top-83{
 
+  top: 83% !important;
+}
 .start-30 {
   left: 30% !important;
 }
-
+.right-25{
+  right: 25% !important;
+}
+.right-15{
+  right: 15% !important;
+}
 .start-5 {
   left: 5% !important;
 }
