@@ -778,7 +778,9 @@ li::marker {
   height: 60px !important;
   width: 100px !important;
 }
-
+.carousel-item {
+  background-color: #212529!important;
+}
 .object-fit,
 .sliderImg {
   object-fit: cover;

@@ -1,5 +1,14 @@
 .sliderImg {
     height: 100vh;
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+  }
+  @media screen and (max-width:600px) {
+    .sliderImg {
+      height: 100vh;
+      margin-left: 45px !important;
+      margin-right: 45px !important;
+    }
   }
   .position {
     position: absolute;
