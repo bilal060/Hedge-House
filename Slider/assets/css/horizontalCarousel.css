@@ -10,6 +10,13 @@
       margin-right: 45px !important;
     }
   }
+  @media screen and (min-width:1850px) {
+    .sliderImg {
+    background-color: #212529 !important;
+    margin-left: 200px !important;
+    margin-right: 200px !important;
+  }
+  }
   .position {
     position: absolute;
     left: 4.5%;
