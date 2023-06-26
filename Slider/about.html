@@ -24,7 +24,7 @@
                 <a href="/"><img class="h-25 w-25 " src="./assets/Images/logo1.png" alt="Logo"></a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" 
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -50,18 +50,71 @@
         <!-- Top Nav -->
         <div class="">
             <div class="carousel-container ">
-
                 <div id="vertical-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false"
                     data-bs-wrap="false">
 
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
 
+                <!-- data-bs-interval: the amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle -->
+                <!-- data-bs wrap: whether the carousel should cycle continuously (i.e go from first to last and vice-versa) -->
+                <div id="carouselExampleIndicators" class="carousel slide"
+                 data-bs-interval="false"
+                    data-bs-wrap="false"
+                    data-bs-ride="carousel">
+                    <!-- Carousel slide indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10" aria-label="Slide 11"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="11" aria-label="Slide 12"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="12" aria-label="Slide 13"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="13" aria-label="Slide 14"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="14" aria-label="Slide 15"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="15" aria-label="Slide 16"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="16" aria-label="Slide 17"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="17" aria-label="Slide 18"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="18" aria-label="Slide 19"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="19" aria-label="Slide 20"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="20" aria-label="Slide 21"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="21" aria-label="Slide 22"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="22" aria-label="Slide 23"></button>
+                       
+                    </div>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <!-- Carousel item represents each slide -->
+                            <!-- <div class="carousel-item position-relative active">
+                            <div style="background-image: url('./assets/Images/img20.jpg');"
+                                class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
+                                <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
+                                    <div class="text-center fs-4">
+                                        <div class="text-green bg-dark fw-bold p-2">
+                                            The Prefabricated Hedgehouse project sets out to address two essentially
+                                            important issues-<br />
+                                            (1) Increase the fertile areas of the planet by maximising vegetation growth
+                                            in urban areas, and in
+                                            particular enable plants to grow over buildings.This would partly compensate
+                                            for those fertile areas
+                                            that are being lost due to climate change.<br />
+                                            (2) The UK is now suffering a shortfall of at least 4M homes at a time when
+                                            there has been a massive hike in
+                                            the cost of labour and materials.
+
+
                             <div class="carousel-item position-relative active">
                                 <div style="background-image: url('./assets/Images/img2.jpg');"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
                                     <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
-                                        <div class="text-center fs-5">
+                                        <div class="text-center fs-4">
                                             <div class="text-green bg-dark fw-bold p-2">
                                                 The Prefabricated Hedgehouse project sets out to address two essentially
                                                 important issues
@@ -74,7 +127,7 @@
                                 <div style="background-image: url('./assets/Images/img3.jpg');"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
                                     <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
-                                        <div class="text-center fs-5">
+                                        <div class="text-center fs-4">
                                             <div class="text-green bg-dark fw-bold p-2">
                                                 1. Increase the fertile areas of the planet by maximising vegetation
                                                 growth in urban areas, and in
@@ -89,7 +142,7 @@
                                 <div style="background-image: url('./assets/Images/img4.jpg');"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
                                     <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
-                                        <div class="text-center fs-5">
+                                        <div class="text-center fs-4">
                                             <div class="text-green bg-dark fw-bold p-2">
                                                 2. The UK is now suffering a shortfall of at least 4M homes at a time
                                                 when there has been a massive hike in
@@ -103,8 +156,13 @@
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
 
                                 </div>
+<<<<<<< Updated upstream
                                 <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
                                     <div class=" text-center fs-5 ">
+=======
+                                <div class="position-absolute top-0 start-50 translate-middle-x mt-2 w-sm-70">
+                                    <div class=" text-center fs-4 ">
+>>>>>>> Stashed changes
                                         <div class="text-green bg-dark fw-bold p-2">
                                             People have lived within the landform of the Earth for centuries but the
                                             horror
@@ -157,8 +215,13 @@
                                 <div style="background-image: url('./assets/Images/unkonwn.jpg');"
                                     class="sliderImg d-flex flex-column gap-3 justify-content-end align-items-center p-3 bg-image-style">
                                 </div>
+<<<<<<< Updated upstream
                                 <div class="w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
                                     <div class="text-white text-center fs-5">
+=======
+                                <div class="w-50 w-sm-70 position-absolute top-0 start-50 translate-middle-x mt-2">
+                                    <div class="text-white text-center fs-4">
+>>>>>>> Stashed changes
                                         <div class="text-green bg-dark p-2 fw-bold">
                                             Earth Sheltering recognised the importance of retaining soil and looking
                                             after
@@ -173,8 +236,13 @@
                             <div class="carousel-item position-relative ">
                                 <div style="background-image: url('./assets/Images/img30.jpg');"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
+<<<<<<< Updated upstream
                                     <div class="w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
                                         <div class="text-white text-center fs-5">
+=======
+                                    <div class="w-50 w-sm-70 position-absolute top-0 start-50 translate-middle-x mt-2">
+                                        <div class="text-white text-center fs-4">
+>>>>>>> Stashed changes
                                             <div class="text-green bg-dark p-2 fw-bold">
                                                 Vegetation plays a crucial part in protecting the Earth and preserving
                                                 its balance so calamities are
@@ -205,8 +273,13 @@
                             <div class="carousel-item position-relative ">
                                 <div style="background-image: url('./assets/Images/PrefabHouses.jpg');"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
+<<<<<<< Updated upstream
                                     <div class="w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
                                         <div class="text-white text-center fs-5">
+=======
+                                    <div class="w-50 w-sm-90 position-absolute top-0 start-50 translate-middle-x mt-2">
+                                        <div class="text-white text-center fs-4">
+>>>>>>> Stashed changes
                                             <div class="text-green bg-dark p-2 fw-bold">
                                                 Alongside the crisis of the planet the UK is experiencing a housing
                                                 crisis-a shortfall of at least 4 M homes.
@@ -222,7 +295,7 @@
                                 <div style="background-image: url('./assets/Images/Page6.jpg');"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
                                     <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
-                                        <div class="text-center fs-5">
+                                        <div class="text-center fs-4">
                                             <div class="text-green bg-dark fw-bold p-2">
                                                 Prefabricated buildings can be rather grim so why can’t they be covered
                                                 in vegetation? Ie
@@ -233,11 +306,11 @@
                                 </div>
                             </div>
                             <div class="carousel-item position-relative ">
-                                <div style="background-image: url('./assets/Images/extra.jpg');"
+                                <div style="background-image: url('./assets/Images/extra.jpg'); background-size: contain !important;"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
-                                    <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
+                                    <div class=" w-25 w-sm-70 position-absolute top-0 start-50 translate-middle-x mt-2">
                                         <div class="text-center fs-5">
-                                            <div class="text-green bg-dark fw-bold p-2">
+                                            <div class="text-green bg-dark07 fw-bold p-2">
                                                 If these tradional buildings can support vegetation why not
                                                 prefebricated ones as well? <br />
                                                 prefebricated can be done by assembling large panels made off site or by
@@ -248,11 +321,16 @@
                                 </div>
                             </div>
                             <div class="carousel-item    position-relative ">
-                                <div style="background-image: url('./assets/Images/Axonometric.jpg');"
+                                <div style="background-image: url('./assets/Images/Axonometric.jpg'); background-size: contain !important;"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
                                     <div
+<<<<<<< Updated upstream
                                         class="text w-75 w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
                                         <div class=" text-center fs-5">
+=======
+                                        class="text about1 w-50 position-absolute top-61 start-40 translate-middle-x mt-2">
+                                        <div class=" text-center fs-4">
+>>>>>>> Stashed changes
                                             <div class="text-green bg-dark fw-bold">
                                                 These Pods can be put together to form a block of houses
                                             </div>
@@ -261,11 +339,16 @@
                                 </div>
                             </div>
                             <div class="carousel-item position-relative ">
-                                <div style="background-image: url('./assets/Images/Page6.jpg');"
+                                <div style="background-image: url('./assets/Images/img18.jpg');"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
                                 </div>
+<<<<<<< Updated upstream
                                 <div class="w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
                                     <div class="text-white text-center fs-5">
+=======
+                                <div class="w-sm-80 position-absolute top-0 start-50 translate-middle-x mt-2">
+                                    <div class="text-white text-center fs-4">
+>>>>>>> Stashed changes
                                         <div class="text-green bg-dark fw-bold">
                                             Not only do all new dwellings need to be built to passiv house standards (ie
                                             require minimal or zero energy
@@ -278,10 +361,25 @@
                                 </div>
                             </div>
                             <div class="carousel-item position-relative ">
-                                <div style="background-image: url('./assets/Images/img23.png');"
+                                <div style="background-image: url('./assets/Images/img19.jpg');"
+                                    class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
+                                </div>
+                            </div>
+                            <div class="carousel-item position-relative ">
+                                <div style="background-image: url('./assets/Images/img21.jpg');"
+                                    class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
+                                </div>
+                            </div>
+                            <div class="carousel-item position-relative ">
+                                <div style="background-image: url('./assets/Images/img20.jpg');"
+                                    class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
+                                </div>
+                            </div>
+                            <div class="carousel-item position-relative ">
+                                <div style="background-image: url('./assets/Images/img23.png'); background-size: contain !important;"
                                     class="sliderImg d-flex justify-content-center align-items-end p-3 bg-image-style">
                                     <div class=" w-75 position-absolute top-0 start-50 translate-middle-x mt-2">
-                                        <div class="text-center fs-5">
+                                        <div class="text-center fs-4">
                                             <div class="text-green bg-dark fw-bold p-2">
                                                 For more details see the brochure-to request a copy or for further
                                                 information please fill in our contact form below.
@@ -300,12 +398,12 @@
                     </div>
 
                     <!-- Carousel buttons -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
@@ -314,5 +412,15 @@
             </div>
         </div>
 </body>
+<script>
+    var carousel = document.getElementById('carousel');
+    carousel.addEventListener('slid.bs.carousel', function () {
+      var activeSlide = this.querySelector('.carousel-item.active');
+      var isLastSlide = activeSlide.nextElementSibling === null;
+      if (isLastSlide) {
+        this.pause();
+      }
+    });
+  </script>
 
 </html>
