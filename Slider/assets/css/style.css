@@ -896,6 +896,12 @@ div {
   .w-sm-90{
     width: 90% !important;
   }
+  .w-sm-100{
+    width: 100% !important
+  }
+  div > *{
+    font-size: 1rem !important;
+  }
 }
 
 .captcha-container {
