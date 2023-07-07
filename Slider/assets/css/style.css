@@ -758,6 +758,17 @@ li::marker {
   .home-page {
     object-fit: contain;
   }
+  @media screen and (min-width:641px){
+    .home-page{
+      display: none
+    }
+  }
+  @media screen and (max-width:640px){
+    .home-page{
+      background-image: url('../Images/mobile/Home_mobile.jpg');
+      display: block;
+    } 
+  }
 
   .enterButton-main {
     left: 5% !important;
