@@ -56,19 +56,24 @@
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
                 margin-top: 40px;
             }
+
             .slidercaptcha canvas:first-child {
                 width: 250px !important;
             }
-            #captcha:nth-child(2){
+
+            #captcha:nth-child(2) {
                 width: 50px !important
             }
-            div[id="captcha"]{
+
+            div[id="captcha"] {
                 width: inherit !important
             }
+
             .slidercaptcha.card .card-header {
-            font-size: 11px !important;
+                font-size: 11px !important;
+            }
         }
-        }
+
         /* @media screen and (max-width: 1000px) {
             .slidercaptcha.card .card-header {
             font-size: 11px !important;
@@ -77,7 +82,7 @@
     </style>
 </head>
 
-<body onload="generateCaptcha(event);">
+<body onload="initializeCaptcha()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <div class="w-sm-60">
@@ -97,11 +102,6 @@
                         <a class="nav-link active" href="./contact.html">Contact</a>
                     </li>
                 </ul>
-                <div class="icons d-flex me-2 gap-4">
-                    <a href="www.twitter.com" class="fab fa-twitter" style="color: #ffffff;"></a>
-                    <a href="www.facebook.com" class="fab fa-facebook-f" style="color: #ffffff;"></a>
-                    <a href="www.youtube.com" class="fab fa-youtube" style="color: #ffffff;"></a>
-                </div>
             </div>
         </div>
     </nav>
@@ -111,7 +111,7 @@
             <div class="d-flex justify-content-center flex-column m-auto">
                 <div class="row mx-0 justify-content-center w-100">
                     <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
-                        <form id="emailForm" action="" method="post" >
+                        <form id="emailForm" action="https://api.cannabisshare.ca/sendEmail" method="post">
                             <div class="row mb-4">
                                 <div class="col-sm-6 mb-sm-0 mb-4 w-full">
                                     <input id="firstName" type="text" class="w-100 form-control"
@@ -195,7 +195,7 @@
                                 <span id="error" style="color:red;"></span>
                                 <span id="success" style="color:green;"></span>
                             </div> -->
-                            <button type="submit" class="btn btn-dark px-4 py-2">Submit</button>
+                            <button type="submit" class="btn btn-dark px-4 py-2" >Submit</button>
                         </form>
                     </div>
                 </div>
@@ -211,94 +211,8 @@
             container.classList.toggle("active-cont");
         });
     </script>
-    <!-- <script type="text/javascript">
-        //for captcha
-        function generateCaptcha(event) {
-            event.preventDefault();
-            var alpha = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
-            var i;
-            for (i = 0; i < 4; i++) {
-                var a = alpha[Math.floor(Math.random() * alpha.length)];
-                var b = alpha[Math.floor(Math.random() * alpha.length)];
-                var c = alpha[Math.floor(Math.random() * alpha.length)];
-                var d = alpha[Math.floor(Math.random() * alpha.length)];
-            }
-            var code = a + '' + b + '' + '' + c + '' + d;
-            document.getElementById("mainCaptcha").value = code
-            var el = document.getElementById('mainCaptcha');
-            el.style.fontFamily = 'Geneva, Verdana, sans-serif';
-            el.style.fontSize = 'large';
-        }
-
-        //validate the form
-        function validateForm() {
-            let x = document.forms["myForm"]["checkcaptcha"].value;
-            let y = document.forms["myForm"]["maincaptcha"].value;
-
-            if (x == "") {
-                document.getElementById('error').innerHTML = "Please enter the captcha.";
-
-                return false;
-            }
-            if (x !== y) {
-                document.getElementById('error').innerHTML = "Captcha does not match.";
-
-                return false;
-            }
-            if (x === y) {
-                document.getElementById('error').innerHTML = "";
-                alert("Captcha entered successfully");
-                return true;
-            }
-        }
-        // automatically generate captcha after page laod
-        $(window).on('load', function () {
-            generateCaptcha(event);
-        });
-        // Disable right click on web page
-        $("html").on("contextmenu", function (e) {
-            return false;
-        });
-        // Disable cut, copy and paste on web page
-        $('html').bind('cut copy paste', function (e) {
-            e.preventDefault();
-        });
-
-        function sendEmails(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Retrieve form data
-            var firstName = document.getElementById('firstName').value;
-            var lastName = document.getElementById('lastName').value;
-            var email = document.getElementById('email').value;
-            var areaCode = document.getElementById('areaCode').value;
-            var phoneNumber = document.getElementById('phoneNumber').value;
-            var company = document.getElementById('company').value;
-            var subject = document.getElementById('subject').value;
-            var details = document.getElementById('details').value;
-
-            // Define the email addresses
-            var email1 = 'abdullahwarraich382@gmail.com';
-            var email2 = 'afaqahmed0321@gmail.com';
-
-            // Create the email body
-            var emailBody = 'First Name: ' + firstName + '\n';
-            emailBody += 'Last Name: ' + lastName + '\n';
-            emailBody += 'Email: ' + email + '\n';
-            emailBody += 'Phone Number: ' + areaCode + '-' + phoneNumber + '\n';
-            emailBody += 'Company: ' + company + '\n';
-            emailBody += 'Subject: ' + subject + '\n';
-            emailBody += 'Details: ' + details + '\n';
-
-            // Send the emails
-            window.open('mailto:' + email1 + '?subject=' + encodeURIComponent('Contact Form Submission') + '&body=' + encodeURIComponent(emailBody));
-            window.open('mailto:' + email2 + '?subject=' + encodeURIComponent('Contact Form Submission') + '&body=' + encodeURIComponent(emailBody));
-
-        }
-
-    </script> -->
     <script src="./assets/disk/longbow.slidercaptcha.min.js"></script>
-    <script>
+    <!-- <script>
         var captcha = sliderCaptcha({
             id: 'captcha',
             repeatIcon: 'fa fa-redo',
@@ -307,7 +221,71 @@
                 alert('Captcha successfully completed!');
             }
         });
-    </script>
+
+    </script> -->
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form submission
+      
+          // Retrieve form data
+          var firstName = document.getElementById('firstName').value;
+          var lastName = document.getElementById('lastName').value;
+          var email = document.getElementById('email').value;
+          var areaCode = document.getElementById('areaCode').value;
+          var phoneNumber = document.getElementById('phoneNumber').value;
+          var company = document.getElementById('company').value;
+          var subject = document.getElementById('subject').value;
+          var details = document.getElementById('details').value;
+      
+          // Create the email body
+          var emailBody = "First Name: " + firstName + "\n";
+          emailBody += "Last Name: " + lastName + "\n";
+          emailBody += "Email: " + email + "\n";
+          emailBody += "Phone Number: " + areaCode + "-" + phoneNumber + "\n";
+          emailBody += "Company: " + company + "\n";
+          emailBody += "Subject: " + subject + "\n";
+          emailBody += "Details: " + details + "\n";
+      
+          // Create the AJAX request
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', 'https://api.cannabisshare.ca/sendEmail');
+          xhr.setRequestHeader('Content-Type', 'application/json');
+      
+          // Send the form data as JSON in the request body
+          xhr.send(JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            areaCode: areaCode,
+            phoneNumber: phoneNumber,
+            company: company,
+            subject: subject,
+            details: details
+          }));
+      
+          // Handle the AJAX response
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              // Request succeeded, show success message
+              alert('Email sent successfully!');
+              document.getElementById('emailForm').reset(); // Reset the form
+            } else {
+              // Request failed, show error message
+              alert('Failed to send email. Please try again later.');
+            }
+          };
+        });
+      
+        var captcha = sliderCaptcha({
+          id: 'captcha',
+          repeatIcon: 'fa fa-redo',
+          onSuccess: function () {
+            captcha.stop(); // Stop the captcha interaction
+            alert('Captcha successfully completed!');
+          }
+        });
+      </script>
+      
 </body>
 
 </html>
