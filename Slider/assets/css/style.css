@@ -953,3 +953,9 @@ button {
 .line-1{
   line-height: 2;
 }
+
+@media (min-width: 1200px){
+  .fs-4 {
+    font-size: 1.6rem !important;
+}
+}

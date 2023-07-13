@@ -111,7 +111,7 @@
             <div class="d-flex justify-content-center flex-column m-auto">
                 <div class="row mx-0 justify-content-center w-100">
                     <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
-                        <form id="emailForm" action="https://api.cannabisshare.ca/sendEmail" method="post">
+                        <form id="emailForm" action="https://api.cannabisshare.ca/api/v1/users/sendEmail" method="post">
                             <div class="row mb-4">
                                 <div class="col-sm-6 mb-sm-0 mb-4 w-full">
                                     <input id="firstName" type="text" class="w-100 form-control"
@@ -195,7 +195,7 @@
                                 <span id="error" style="color:red;"></span>
                                 <span id="success" style="color:green;"></span>
                             </div> -->
-                            <button type="submit" class="btn btn-dark px-4 py-2" >Submit</button>
+                            <button type="submit" class="btn btn-success px-4 py-2" >Submit</button>
                         </form>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
       
           // Create the AJAX request
           var xhr = new XMLHttpRequest();
-          xhr.open('POST', 'https://api.cannabisshare.ca/sendEmail');
+          xhr.open('POST', 'https://api.cannabisshare.ca/api/v1/users/sendEmail');
           xhr.setRequestHeader('Content-Type', 'application/json');
       
           // Send the form data as JSON in the request body
