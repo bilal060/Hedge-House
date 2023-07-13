@@ -910,7 +910,7 @@ div {
     width: 100% !important
   }
   div > *{
-    font-size: 1rem !important;
+    font-size: 1rem ;
   }
 }
 

@@ -14,10 +14,67 @@
     <title>Contact</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/carousel.css" />
-
+    <link href="./assets//disk/slidercaptcha.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        .slidercaptcha {
+            margin: 0 auto;
+            width: 314px;
+            height: 286px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+            margin-top: 40px;
+        }
+
+        .slidercaptcha .card-body {
+            padding: 1rem;
+        }
+
+        .slidercaptcha canvas:first-child {
+            border-radius: 4px;
+            border: 1px solid #e6e8eb;
+        }
+
+        .slidercaptcha.card .card-header {
+            background-image: none;
+            background-color: rgba(0, 0, 0, 0.03);
+            font-size: 14px !important;
+        }
+
+        .refreshIcon {
+            top: -54px;
+        }
+
+        @media screen and (max-width:400px) {
+            .slidercaptcha {
+                margin: 0 auto;
+                width: inherit !important;
+                height: 286px;
+                border-radius: 4px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+                margin-top: 40px;
+            }
+            .slidercaptcha canvas:first-child {
+                width: 250px !important;
+            }
+            #captcha:nth-child(2){
+                width: 50px !important
+            }
+            div[id="captcha"]{
+                width: inherit !important
+            }
+            .slidercaptcha.card .card-header {
+            font-size: 11px !important;
+        }
+        }
+        /* @media screen and (max-width: 1000px) {
+            .slidercaptcha.card .card-header {
+            font-size: 11px !important;
+        } 
+        }*/
+    </style>
 </head>
 
 <body onload="generateCaptcha(event);">
@@ -54,47 +111,48 @@
             <div class="d-flex justify-content-center flex-column m-auto">
                 <div class="row mx-0 justify-content-center w-100">
                     <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
-                        <form action="/action_page.php" method="post" onsubmit="return validateForm()" name="myForm">
+                        <form id="emailForm" action="" method="post" >
                             <div class="row mb-4">
                                 <div class="col-sm-6 mb-sm-0 mb-4 w-full">
-                                    <input type="text" class="w-100 form-control" placeholder="First Name" />
+                                    <input id="firstName" type="text" class="w-100 form-control"
+                                        placeholder="First Name" />
                                 </div>
                                 <div class="col-sm-6 w-full">
-                                    <input type="text" class="w-100 form-control" placeholder="Last Name" />
+                                    <input id="lastName" type="text" class="w-100 form-control"
+                                        placeholder="Last Name" />
                                 </div>
                             </div>
 
                             <div class="row mb-4">
                                 <div class="col-12">
-                                    <input type="text" class="w-100 form-control" placeholder="Email" />
+                                    <input id="email" type="text" class="w-100 form-control" placeholder="Email" />
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-3 pe-0 w-full"> <input type="text" class="w-100 form-control"
-                                        placeholder="Area Code" />
+                                <div class="col-3 pe-0 w-full"> <input id="areaCode" type="text"
+                                        class="w-100 form-control" placeholder="Area Code" />
                                 </div>
                                 <div class="dash col-1 p-0 d-flex justify-content-center">_</div>
-                                <div class="col-8 ps-0 w-full"> <input type="text" class="w-100 form-control"
-                                        placeholder="Phone Number" />
+                                <div class="col-8 ps-0 w-full"> <input id="phoneNumber" type="text"
+                                        class="w-100 form-control" placeholder="Phone Number" />
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-12">
-                                    <input type="text" class="w-100 form-control" placeholder="Company" />
+                                    <input id="company" type="text" class="w-100 form-control" placeholder="Company" />
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-12">
 
-                                    <input type="text" class="w-100 form-control" placeholder="Subject" />
+                                    <input id="subject" type="text" class="w-100 form-control" placeholder="Subject" />
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-12 mb-3">
-                                    <textarea class=" w-100 form-control" rows="4" cols="50"
+                                    <textarea id="details" class=" w-100 form-control" rows="4" cols="50"
                                         placeholder="Details"></textarea>
                                 </div>
-
                                 <div>
                                     <label class="form-label">
                                         <input type="checkbox" />
@@ -106,7 +164,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="pwd" class="fw-bold">Captcha:</label>
-                                <div class="row">
+                                <div class="slidercaptcha card">
+                                    <div class="card-header">
+                                        <span>Complete the security check</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="captcha"></div>
+                                    </div>
+                                </div>
+                                <!--<div class="row">
                                     <div class="col-10">
                                         <input type="text" name="maincaptcha" readonly class="form-control"
                                             id="mainCaptcha" />
@@ -115,9 +181,9 @@
                                         <button class="btn btn-success btn-sm" onclick="generateCaptcha(event);"
                                             id="refresh"><i class="fa fa-refresh" style="font-size:17px"></i></button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label for="pwd" class="fw-bold">Enter Captcha:</label>
                                 <div class="row">
                                     <div class="col-sm-10">
@@ -128,7 +194,7 @@
                             <div class="mb-3">
                                 <span id="error" style="color:red;"></span>
                                 <span id="success" style="color:green;"></span>
-                            </div>
+                            </div> -->
                             <button type="submit" class="btn btn-dark px-4 py-2">Submit</button>
                         </form>
                     </div>
@@ -145,7 +211,7 @@
             container.classList.toggle("active-cont");
         });
     </script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         //for captcha
         function generateCaptcha(event) {
             event.preventDefault();
@@ -196,6 +262,50 @@
         // Disable cut, copy and paste on web page
         $('html').bind('cut copy paste', function (e) {
             e.preventDefault();
+        });
+
+        function sendEmails(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Retrieve form data
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var areaCode = document.getElementById('areaCode').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var company = document.getElementById('company').value;
+            var subject = document.getElementById('subject').value;
+            var details = document.getElementById('details').value;
+
+            // Define the email addresses
+            var email1 = 'abdullahwarraich382@gmail.com';
+            var email2 = 'afaqahmed0321@gmail.com';
+
+            // Create the email body
+            var emailBody = 'First Name: ' + firstName + '\n';
+            emailBody += 'Last Name: ' + lastName + '\n';
+            emailBody += 'Email: ' + email + '\n';
+            emailBody += 'Phone Number: ' + areaCode + '-' + phoneNumber + '\n';
+            emailBody += 'Company: ' + company + '\n';
+            emailBody += 'Subject: ' + subject + '\n';
+            emailBody += 'Details: ' + details + '\n';
+
+            // Send the emails
+            window.open('mailto:' + email1 + '?subject=' + encodeURIComponent('Contact Form Submission') + '&body=' + encodeURIComponent(emailBody));
+            window.open('mailto:' + email2 + '?subject=' + encodeURIComponent('Contact Form Submission') + '&body=' + encodeURIComponent(emailBody));
+
+        }
+
+    </script> -->
+    <script src="./assets/disk/longbow.slidercaptcha.min.js"></script>
+    <script>
+        var captcha = sliderCaptcha({
+            id: 'captcha',
+            repeatIcon: 'fa fa-redo',
+            onSuccess: function () {
+                captcha.stop(); // Stop the captcha interaction
+                alert('Captcha successfully completed!');
+            }
         });
     </script>
 </body>
