@@ -111,7 +111,7 @@
             <div class="d-flex justify-content-center flex-column m-auto">
                 <div class="row mx-0 justify-content-center w-100">
                     <div class="col-md-8 col-lg-6  col-12 mx-0 bg-lightBlack p-4 rounded-3">
-                        <form id="emailForm" action="https://api.cannabisshare.ca/api/v1/users/sendEmail" method="post">
+                        <form id="emailForm" action="http://localhost:4000/api/v1/users/sendEmail" method="post">
                             <div class="row mb-4">
                                 <div class="col-sm-6 mb-sm-0 mb-4 w-full">
                                     <input id="firstName" type="text" class="w-100 form-control"
@@ -195,7 +195,8 @@
                                 <span id="error" style="color:red;"></span>
                                 <span id="success" style="color:green;"></span>
                             </div> -->
-                            <button type="submit" class="btn btn-success px-4 py-2" id="submitBtn">Submit</button>
+                            <button type="submit" class="btn btn-success px-4 py-2" id="submitBtn"
+                                disabled>Submit</button>
                         </form>
                     </div>
                 </div>
@@ -228,8 +229,8 @@
             event.preventDefault(); // Prevent form submission
 
             // Retrieve form data
-            var firstName = document.getElementById('firstName').value;
-            var lastName = document.getElementById('lastName').value;
+            var firstname = document.getElementById('firstName').value;
+            var lastname = document.getElementById('lastName').value;
             var email = document.getElementById('email').value;
             var areaCode = document.getElementById('areaCode').value;
             var phoneNumber = document.getElementById('phoneNumber').value;
@@ -238,23 +239,23 @@
             var details = document.getElementById('details').value;
 
             // Create the email body
-            var emailBody = "First Name: " + firstName + "\n";
-            emailBody += "Last Name: " + lastName + "\n";
+            var emailBody = "First Name: " + firstname + "\n";
+            emailBody += "Last Name: " + lastname + "\n";
             emailBody += "Email: " + email + "\n";
             emailBody += "Phone Number: " + areaCode + "-" + phoneNumber + "\n";
             emailBody += "Company: " + company + "\n";
             emailBody += "Subject: " + subject + "\n";
             emailBody += "Details: " + details + "\n";
-
+            console.log(emailBody);
             // Create the AJAX request
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://api.cannabisshare.ca/api/v1/users/sendEmail');
+            xhr.open('POST', 'http://localhost:4000/api/v1/users/sendEmail');
             xhr.setRequestHeader('Content-Type', 'application/json');
 
             // Send the form data as JSON in the request body
             xhr.send(JSON.stringify({
-                firstName: firstName,
-                lastName: lastName,
+                firstname: firstname,
+                lastname: lastname,
                 email: email,
                 areaCode: areaCode,
                 phoneNumber: phoneNumber,
@@ -276,6 +277,7 @@
             };
         });
 
+
         var captcha = sliderCaptcha({
             id: 'captcha',
             repeatIcon: 'fa fa-redo',
@@ -290,7 +292,51 @@
                 var submitBtn = document.getElementById('submitBtn');
                 submitBtn.setAttribute('disabled', true);
             },
+            onRefresh: function () {
+                isCaptchaCompleted = false; // Set the global variable to false when the captcha is refreshed
+                var submitButton = document.getElementById('submitBtn');
+                submitButton.disabled = true; // Disable the submit button when the captcha is refreshed
+            }
         });
+    </script>
+
+    <script>
+        // Function to check if all required fields are filled
+        function areFieldsFilled() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var areaCode = document.getElementById('areaCode').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var subject = document.getElementById('subject').value;
+            var details = document.getElementById('details').value;
+
+            // Check if all required fields are filled
+            if (
+                firstName.trim() === '' ||
+                lastName.trim() === '' ||
+                email.trim() === '' ||
+                areaCode.trim() === '' ||
+                phoneNumber.trim() === '' ||
+                subject.trim() === '' ||
+                details.trim() === ''
+            ) {
+                return false; // Return false if any required field is empty
+            }
+
+            return true; // All required fields are filled
+        }
+
+        // Bind the areFieldsFilled function to the input event of each required field
+        var requiredFields = document.querySelectorAll('#firstName, #lastName, #email, #areaCode, #phoneNumber, #subject, #details');
+        requiredFields.forEach(function (field) {
+            field.addEventListener('input', function () {
+                var submitButton = document.getElementById('submitBtn');
+                submitButton.disabled = areFieldsFilled(); // Enable or disable the submit button based on the result of areFieldsFilled
+            });
+        });
+
+    // Rest of your code...
     </script>
 
 </body>
