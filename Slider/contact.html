@@ -195,7 +195,7 @@
                                 <span id="error" style="color:red;"></span>
                                 <span id="success" style="color:green;"></span>
                             </div> -->
-                            <button type="submit" class="btn btn-success px-4 py-2" >Submit</button>
+                            <button type="submit" class="btn btn-success px-4 py-2" id="submitBtn">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -224,68 +224,75 @@
 
     </script> -->
     <script>
-        document.getElementById('emailForm').addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent form submission
-      
-          // Retrieve form data
-          var firstName = document.getElementById('firstName').value;
-          var lastName = document.getElementById('lastName').value;
-          var email = document.getElementById('email').value;
-          var areaCode = document.getElementById('areaCode').value;
-          var phoneNumber = document.getElementById('phoneNumber').value;
-          var company = document.getElementById('company').value;
-          var subject = document.getElementById('subject').value;
-          var details = document.getElementById('details').value;
-      
-          // Create the email body
-          var emailBody = "First Name: " + firstName + "\n";
-          emailBody += "Last Name: " + lastName + "\n";
-          emailBody += "Email: " + email + "\n";
-          emailBody += "Phone Number: " + areaCode + "-" + phoneNumber + "\n";
-          emailBody += "Company: " + company + "\n";
-          emailBody += "Subject: " + subject + "\n";
-          emailBody += "Details: " + details + "\n";
-      
-          // Create the AJAX request
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', 'https://api.cannabisshare.ca/api/v1/users/sendEmail');
-          xhr.setRequestHeader('Content-Type', 'application/json');
-      
-          // Send the form data as JSON in the request body
-          xhr.send(JSON.stringify({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            areaCode: areaCode,
-            phoneNumber: phoneNumber,
-            company: company,
-            subject: subject,
-            details: details
-          }));
-      
-          // Handle the AJAX response
-          xhr.onload = function() {
-            if (xhr.status === 200) {
-              // Request succeeded, show success message
-              alert('Email sent successfully!');
-              document.getElementById('emailForm').reset(); // Reset the form
-            } else {
-              // Request failed, show error message
-              alert('Failed to send email. Please try again later.');
-            }
-          };
+        document.getElementById('emailForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Retrieve form data
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var areaCode = document.getElementById('areaCode').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var company = document.getElementById('company').value;
+            var subject = document.getElementById('subject').value;
+            var details = document.getElementById('details').value;
+
+            // Create the email body
+            var emailBody = "First Name: " + firstName + "\n";
+            emailBody += "Last Name: " + lastName + "\n";
+            emailBody += "Email: " + email + "\n";
+            emailBody += "Phone Number: " + areaCode + "-" + phoneNumber + "\n";
+            emailBody += "Company: " + company + "\n";
+            emailBody += "Subject: " + subject + "\n";
+            emailBody += "Details: " + details + "\n";
+
+            // Create the AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://api.cannabisshare.ca/api/v1/users/sendEmail');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            // Send the form data as JSON in the request body
+            xhr.send(JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                areaCode: areaCode,
+                phoneNumber: phoneNumber,
+                company: company,
+                subject: subject,
+                details: details
+            }));
+
+            // Handle the AJAX response
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Request succeeded, show success message
+                    alert('Email sent successfully!');
+                    document.getElementById('emailForm').reset(); // Reset the form
+                } else {
+                    // Request failed, show error message
+                    alert('Failed to send email. Please try again later.');
+                }
+            };
         });
-      
+
         var captcha = sliderCaptcha({
-          id: 'captcha',
-          repeatIcon: 'fa fa-redo',
-          onSuccess: function () {
-            captcha.stop(); // Stop the captcha interaction
-            alert('Captcha successfully completed!');
-          }
+            id: 'captcha',
+            repeatIcon: 'fa fa-redo',
+            onSuccess: function () {
+                // captcha.stop(); // Stop the captcha interaction
+                alert('Captcha successfully completed!');
+                var submitBtn = document.getElementById('submitBtn');
+                submitBtn.removeAttribute('disabled')
+            },
+            onFail: function () {
+                alert('Captcha Failed!');
+                var submitBtn = document.getElementById('submitBtn');
+                submitBtn.setAttribute('disabled', true);
+            },
         });
-      </script>
-      
+    </script>
+
 </body>
 
 </html>
