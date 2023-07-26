@@ -88,7 +88,7 @@
         this.initImg();
         this.bindEvents();
     };
-
+       
     _proto.initDOM = function () {
         var createElement = function (tagName, className) {
             var elment = document.createElement(tagName);
@@ -115,7 +115,7 @@
 
         block.className = 'block';
         text.innerHTML = this.options.barText;
-
+                                                                  
         var el = this.$element;
         el.appendChild(canvas);
         el.appendChild(refreshIcon);
