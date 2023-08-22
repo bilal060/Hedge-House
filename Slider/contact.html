@@ -12,11 +12,9 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/494467da2b.js" crossorigin="anonymous"></script>
     <title>Contact Us</title>
-    <link rel="icon" type="image/x-icon" href="./assets/Images/logo1.png">,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+    <link rel="icon" type="image/x-icon" href="./assets/Images/logo1.png">
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/carousel.css" />
-    <link href="./assets//disk/slidercaptcha.min.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
@@ -165,15 +163,34 @@
                             </div>
                             <div class="mb-3">
                                 <label for="pwd" class="fw-bold">Captcha:</label>
-                                <div class="slidercaptcha card">
+                                <!-- <div class="slidercaptcha card">
                                     <div class="card-header">
                                         <span>Complete the security check</span>
                                     </div>
                                     <div class="card-body">
                                         <div id="captcha"></div>
                                     </div>
+                                </div> -->
+                                <div class="container-fluid">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 mb-5">
+                                            <div class="slidercaptcha card">
+                                                <div class="card-header">
+                                                    <span>Please complete security verification!</span>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div id="captcha"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <!--<div class="row">
+
+                            </div>
+                            <button type="submit" class="btn btn-success px-4 py-2" id="submitBtn"
+                                disabled>Submit</button>
+                            <!--<div class="row">
                                     <div class="col-10">
                                         <input type="text" name="maincaptcha" readonly class="form-control"
                                             id="mainCaptcha" />
@@ -183,8 +200,8 @@
                                             id="refresh"><i class="fa fa-refresh" style="font-size:17px"></i></button>
                                     </div>
                                 </div> -->
-                            </div>
-                            <!-- <div class="mb-3">
+                    </div>
+                    <!-- <div class="mb-3">
                                 <label for="pwd" class="fw-bold">Enter Captcha:</label>
                                 <div class="row">
                                     <div class="col-sm-10">
@@ -196,13 +213,12 @@
                                 <span id="error" style="color:red;"></span>
                                 <span id="success" style="color:green;"></span>
                             </div> -->
-                            <button type="submit" class="btn btn-success px-4 py-2" id="submitBtn"
-                                disabled>Submit</button>
-                        </form>
-                    </div>
+
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script>
         var menu_btn = document.querySelector("#menu-btn");
@@ -213,18 +229,6 @@
             container.classList.toggle("active-cont");
         });
     </script>
-    <script src="./assets/disk/longbow.slidercaptcha.min.js"></script>
-    <!-- <script>
-        var captcha = sliderCaptcha({
-            id: 'captcha',
-            repeatIcon: 'fa fa-redo',
-            onSuccess: function () {
-                captcha.stop(); // Stop the captcha interaction
-                alert('Captcha successfully completed!');
-            }
-        });
-
-    </script> -->
     <script>
         document.getElementById('emailForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
@@ -270,17 +274,23 @@
                 if (xhr.status === 200) {
                     // Request succeeded, show success message
                     alert('Email sent successfully!');
-                    document.getElementById('emailForm').reset(); // Reset the form
+                    document.getElementById('emailForm').reset();
+                    captcha.reset(); // Reset the form
                 } else {
                     // Request failed, show error message
-                    alert('Failed to send email. Please try again later.');
+                    alert('Failed to send email. Please try again later. Make sure to fill all the fields.');
                 }
             };
         });
 
-
-        var captcha = sliderCaptcha({
+        
+    (function () { "use strict"; function u(n) { var i = document.getElementById(n.id), r = typeof n == "object" && n; return new t(i, r) } var r = function () { var u = arguments.length, n = arguments[0] || {}, t, i, r; for (typeof n != "object" && typeof n != "function" && (n = {}), u == 1 && (n = this, t--), t = 1; t < u; t++) { i = arguments[t]; for (r in i) Object.prototype.hasOwnProperty.call(i, r) && (n[r] = i[r]) } return n }, i = function (n) { return typeof n == "function" && typeof n.nodeType != "number" }, t = function (n, i) { this.$element = n; this.options = r({}, t.DEFAULTS, i); this.$element.style.position = "relative"; this.$element.style.width = this.options.width + "px"; this.$element.style.margin = "0 auto"; this.init() }, n; t.VERSION = "1.0"; t.Author = "argo@163.com"; t.DEFAULTS = { width: 280, height: 155, PI: Math.PI, sliderL: 42, sliderR: 9, offset: 5, loadingText: "æ­£åœ¨åŠ è½½ä¸­...", failedText: "å†è¯•ä¸€æ¬¡", barText: "å‘å³æ»‘åŠ¨å¡«å……æ‹¼å›¾", repeatIcon: "fa fa-repeat", maxLoadCount: 3, localImages: function () { return "images/Pic" + Math.round(Math.random() * 4) + ".jpg" }, verify: function (n, t) { var i = !1; return $.ajax({ url: t, data: { datas: JSON.stringify(n) }, dataType: "json", type: "post", async: !1, success: function (n) { i = JSON.stringify(n); console.log("è¿”å›žç»“æžœï¼š" + i) } }), i }, remoteUrl: null }; window.sliderCaptcha = u; window.sliderCaptcha.Constructor = t; n = t.prototype; n.init = function () { this.initDOM(); this.initImg(); this.bindEvents() }; n.initDOM = function () { var n = function (n, t) { var i = document.createElement(n); return i.className = t, i }, v = function (n, t) { var i = document.createElement("canvas"); return i.width = n, i.height = t, i }, f = v(this.options.width - 2, this.options.height), e = f.cloneNode(!0), t = n("div", "sliderContainer"), l = n("i", "refreshIcon " + this.options.repeatIcon), o = n("div", "sliderMask"), y = n("div", "sliderbg"), s = n("div", "slider"), a = n("i", "fa fa-arrow-right sliderIcon"), h = n("span", "sliderText"), u, c; e.className = "block"; h.innerHTML = this.options.barText; u = this.$element; u.appendChild(f); u.appendChild(l); u.appendChild(e); s.appendChild(a); o.appendChild(s); t.appendChild(y); t.appendChild(o); t.appendChild(h); u.appendChild(t); c = { canvas: f, block: e, sliderContainer: t, refreshIcon: l, slider: s, sliderMask: o, sliderIcon: a, text: h, canvasCtx: f.getContext("2d"), blockCtx: e.getContext("2d") }; i(Object.assign) ? Object.assign(this, c) : r(this, c) }; n.initImg = function () { var n = this, f = window.navigator.userAgent.indexOf("Trident") > -1, r = this.options.sliderL + this.options.sliderR * 2 + 3, e = function (t, i) { var r = n.options.sliderL, o = n.options.sliderR, s = n.options.PI, u = n.x, e = n.y; t.beginPath(); t.moveTo(u, e); t.arc(u + r / 2, e - o + 2, o, .72 * s, 2.26 * s); t.lineTo(u + r, e); t.arc(u + r + o - 2, e + r / 2, o, 1.21 * s, 2.78 * s); t.lineTo(u + r, e + r); t.lineTo(u, e + r); t.arc(u + o - 2, e + r / 2, o + .4, 2.76 * s, 1.24 * s, !0); t.lineTo(u, e); t.lineWidth = 2; t.fillStyle = "rgba(255, 255, 255, 0.7)"; t.strokeStyle = "rgba(255, 255, 255, 0.7)"; t.stroke(); t[i](); t.globalCompositeOperation = f ? "xor" : "destination-over" }, o = function (n, t) { return Math.round(Math.random() * (t - n) + n) }, t = new Image, u; t.crossOrigin = "Anonymous"; u = 0; t.onload = function () { n.x = o(r + 10, n.options.width - (r + 10)); n.y = o(10 + n.options.sliderR * 2, n.options.height - (r + 10)); e(n.canvasCtx, "fill"); e(n.blockCtx, "clip"); n.canvasCtx.drawImage(t, 0, 0, n.options.width - 2, n.options.height); n.blockCtx.drawImage(t, 0, 0, n.options.width - 2, n.options.height); var i = n.y - n.options.sliderR * 2 - 1, u = n.blockCtx.getImageData(n.x - 3, i, r, r); n.block.width = r; n.blockCtx.putImageData(u, 0, i + 1); n.text.textContent = n.text.getAttribute("data-text") }; t.onerror = function () { if (u++, window.location.protocol === "file:" && (u = n.options.maxLoadCount, console.error("can't load pic resource file from File protocal. Please try http or https")), u >= n.options.maxLoadCount) { n.text.textContent = "åŠ è½½å¤±è´¥"; n.classList.add("text-danger"); return } t.src = n.options.localImages() }; t.setSrc = function () { var r = "", e; u = 0; n.text.classList.remove("text-danger"); i(n.options.setSrc) && (r = n.options.setSrc()); r && r !== "" || (r = "https://picsum.photos/" + n.options.width + "/" + n.options.height + "/?image=" + Math.round(Math.random() * 20)); f ? (e = new XMLHttpRequest, e.onloadend = function (n) { var i = new FileReader; i.readAsDataURL(n.target.response); i.onloadend = function (n) { t.src = n.target.result } }, e.open("GET", r), e.responseType = "blob", e.send()) : t.src = r }; t.setSrc(); this.text.setAttribute("data-text", this.options.barText); this.text.textContent = this.options.loadingText; this.img = t }; n.clean = function () { this.canvasCtx.clearRect(0, 0, this.options.width, this.options.height); this.blockCtx.clearRect(0, 0, this.options.width, this.options.height); this.block.width = this.options.width }; n.bindEvents = function () { var n = this; this.$element.addEventListener("selectstart", function () { return !1 }); this.refreshIcon.addEventListener("click", function () { n.text.textContent = n.options.barText; n.reset(); i(n.options.onRefresh) && n.options.onRefresh.call(n.$element) }); var r, u, f = [], t = !1, e = function (i) { n.text.classList.contains("text-danger") || (r = i.clientX || i.touches[0].clientX, u = i.clientY || i.touches[0].clientY, t = !0) }, o = function (i) { var o; if (!t) return !1; var s = i.clientX || i.touches[0].clientX, h = i.clientY || i.touches[0].clientY, e = s - r, c = h - u; if (e < 0 || e + 40 > n.options.width) return !1; n.slider.style.left = e - 1 + "px"; o = (n.options.width - 60) / (n.options.width - 40) * e; n.block.style.left = o + "px"; n.sliderContainer.classList.add("sliderContainer_active"); n.sliderMask.style.width = e + 4 + "px"; f.push(Math.round(c)) }, s = function (u) { var o, e; if (!t || (t = !1, o = u.clientX || u.changedTouches[0].clientX, o === r)) return !1; n.sliderContainer.classList.remove("sliderContainer_active"); n.trail = f; e = n.verify(); e.spliced && e.verified ? (n.sliderContainer.classList.add("sliderContainer_success"), i(n.options.onSuccess) && n.options.onSuccess.call(n.$element)) : (n.sliderContainer.classList.add("sliderContainer_fail"), i(n.options.onFail) && n.options.onFail.call(n.$element), setTimeout(function () { n.text.innerHTML = n.options.failedText; n.reset() }, 1e3)) }; this.slider.addEventListener("mousedown", e); this.slider.addEventListener("touchstart", e); document.addEventListener("mousemove", o); document.addEventListener("touchmove", o); document.addEventListener("mouseup", s); document.addEventListener("touchend", s); document.addEventListener("mousedown", function () { return !1 }); document.addEventListener("touchstart", function () { return !1 }); document.addEventListener("swipe", function () { return !1 }) }; n.verify = function () { var n = this.trail, r = parseInt(this.block.style.left), t = !1; if (this.options.remoteUrl !== null) t = this.options.verify(n, this.options.remoteUrl); else { var i = function (n, t) { return n + t }, u = function (n) { return n * n }, f = n.reduce(i) / n.length, e = n.map(function (n) { return n - f }), o = Math.sqrt(e.map(u).reduce(i) / n.length); t = o !== 0 } return { spliced: Math.abs(r - this.x) < this.options.offset, verified: t } }; n.reset = function () { this.sliderContainer.classList.remove("sliderContainer_fail"); this.sliderContainer.classList.remove("sliderContainer_success"); this.slider.style.left = 0; this.block.style.left = 0; this.sliderMask.style.width = 0; this.clean(); this.text.setAttribute("data-text", this.text.textContent); this.text.textContent = this.options.loadingText; this.img.setSrc() } })();
+        
+    var captcha = sliderCaptcha({
             id: 'captcha',
+            loadingText: 'Loading...',
+            failedText: 'Try again',
+            barText: 'Slide right to fill',
             repeatIcon: 'fa fa-redo',
             onSuccess: function () {
                 // captcha.stop(); // Stop the captcha interaction
@@ -299,43 +309,85 @@
                 submitButton.disabled = true; // Disable the submit button when the captcha is refreshed
             }
         });
+
+
+
+        // // ----set-captcha with script
+        // var captcha = sliderCaptcha({
+        //     id: 'captcha',
+        //     loadingText: 'Loading...',
+        //     failedText: 'Try again',
+        //     barText: 'Slide right to fill',
+        //     repeatIcon: 'fa fa-redo',
+        //     onSuccess: function () {
+        //         // var handler = setTimeout(function () {
+        //         //     window.clearTimeout(handler);
+        //         //     captcha.reset();
+        //         // }, 500);
+        //         setTimeout(function () {
+        //             alert('Your captcha is successfully verified.');
+        //             captcha.reset();
+        //         }, 1000);
+        //     },
+        //     setSrc: function () {
+        //         //return 'https://picsum.photos/' + Math.round(Math.random() * 136) + '.jpg';
+        //     },
+        // });
+
     </script>
 
     <script>
         // Function to check if all required fields are filled
         function areFieldsFilled() {
-            var firstName = document.getElementById('firstName').value;
-            var lastName = document.getElementById('lastName').value;
-            var email = document.getElementById('email').value;
-            var areaCode = document.getElementById('areaCode').value;
-            var phoneNumber = document.getElementById('phoneNumber').value;
-            var subject = document.getElementById('subject').value;
-            var details = document.getElementById('details').value;
-
-            // Check if all required fields are filled
-            if (
-                firstName.trim() === '' ||
-                lastName.trim() === '' ||
-                email.trim() === '' ||
-                areaCode.trim() === '' ||
-                phoneNumber.trim() === '' ||
-                subject.trim() === '' ||
-                details.trim() === ''
-            ) {
+        var requiredFields = ['firstName', 'lastName', 'email', 'areaCode', 'phoneNumber', 'subject', 'details'];
+        
+        for (var i = 0; i < requiredFields.length; i++) {
+            var fieldValue = document.getElementById(requiredFields[i]).value.trim();
+            if (fieldValue === '') {
                 return false; // Return false if any required field is empty
             }
-
-            return true; // All required fields are filled
         }
 
-        // Bind the areFieldsFilled function to the input event of each required field
-        var requiredFields = document.querySelectorAll('#firstName, #lastName, #email, #areaCode, #phoneNumber, #subject, #details');
-        requiredFields.forEach(function (field) {
-            field.addEventListener('input', function () {
-                var submitButton = document.getElementById('submitBtn');
-                submitButton.disabled = areFieldsFilled(); // Enable or disable the submit button based on the result of areFieldsFilled
-            });
+        return true; // All required fields are filled
+    }
+
+    // Bind the areFieldsFilled function to the input event of each required field
+    var requiredFields = document.querySelectorAll('#firstName, #lastName, #email, #areaCode, #phoneNumber, #subject, #details');
+    requiredFields.forEach(function (field) {
+        field.addEventListener('input', function () {
+            var submitButton = document.getElementById('submitBtn');
+            submitButton.disabled = !areFieldsFilled(); // Enable or disable the submit button based on the result of areFieldsFilled
         });
+    });
+
+    // Function to validate the form before submission
+    function validateForm(event) {
+        event.preventDefault(); // Prevent form submission
+        
+        // Check if all required fields are filled and captcha is completed
+        if (areFieldsFilled() && captcha.isCaptchaCompleted()) {
+            // Your existing form submission code here
+            // ...
+            alert('Form submitted successfully!');
+            document.getElementById('emailForm').reset(); // Reset the form
+            captcha.reset(); // Reset the captcha
+        } else {
+            alert('Please fill all required fields and complete the captcha.');
+        }
+    }
+
+    // Bind the validateForm function to the form submission event
+    var emailForm = document.getElementById('emailForm');
+    emailForm.addEventListener('submit', validateForm);
+
+        // Bind the areFieldsFilled function to the input event of each required field
+        // var requiredFields = document.querySelectorAll('#firstName, #lastName, #email, #areaCode, #phoneNumber, #subject, #details');
+        // requiredFields.forEach(function (field) {
+        //     field.addEventListener('input', function () {
+        //         var submitButton = document.getElementById('submitBtn');
+        //         submitButton.disabled = areFieldsFilled(); // Enable or disable the submit button based on the result of areFieldsFilled
+        //     });
+        // });
 
     // Rest of your code...
     </script>
